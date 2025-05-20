@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DENV Docking Results Viewer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #005f73;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        select {
+            width: 80%;
+            max-width: 600px;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            background-color: white;
+        }
+
+        option {
+            text-transform: uppercase;
+        }
+
+        iframe {
+            width: 90%;
+            height: 80vh;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: #777;
+        }
+
+        .dropdown-container {
+            display: flex;
+            gap: 1rem;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .iframe-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 90%;
+            max-width: 1000px;
+            margin-bottom: 2rem;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 80vh;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .iframe-container a.link {
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: #005f73;
+            text-decoration: none;
+        }
+
+        .iframe-container a.link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>DENV Antiviral Peptide Docking Results</h1>
+    </header>
+
+    <main>
+        <label for="seqDropdown">Choose a docking result to view:</label>
+
+        <div class="dropdown-container">
+            <!-- Sequence Dropdown -->
+            <select id="seqDropdown" aria-label="Select Sequence">
+                <option value="" hidden>Select Sequence</option>
+                <option value="DENV1SEQ03">DENV1SEQ03</option>
+                <option value="DENV1SEQ06">DENV1SEQ06</option>
+                <option value="DENV1SEQ08">DENV1SEQ08</option>
+                <option value="DENV2SEQ05">DENV2SEQ05</option>
+                <option value="DENV2SEQ08">DENV2SEQ08</option>
+                <option value="DENV2SEQ10">DENV2SEQ10</option>
+                <option value="DENV3SEQ06">DENV3SEQ06</option>
+                <option value="DENV3SEQ09">DENV3SEQ09</option>
+                <option value="DENV3SEQ10">DENV3SEQ10</option>
+                <option value="DENV4SEQ01">DENV4SEQ01</option>
+                <option value="DENV4SEQ09">DENV4SEQ09</option>
+                <option value="DENV4SEQ10">DENV4SEQ10</option>
+            </select>
+
+            <!-- PDB Dropdown -->
+            <select id="pdbDropdown" aria-label="Select PDB" disabled>
+                <option value="" hidden>Select PDB</option>
+            </select>
+        </div>
+
+        <div class="iframe-container">
+            <iframe id="result-frame" src=""></iframe>
+            <a id="pdb-link" class="link" href="#" target="_blank" style="display: none;">View DENV E Protein on RCSB PDB</a>
+        </div>
+
+<div style="font-family: Arial, sans-serif; padding: 1rem; max-width: 900px; margin: auto;">
+  <h2>DENV1SEQ06</h2>
+  <p><strong>Peptide Sequence:</strong> ALGWVKRITDSV</p>
+  <p><strong>Predicted Inhibition:</strong> 15.14191</p>
+
+  <!-- Card style -->
+  <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;">
+
+    <!-- Absorption -->
+    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1rem;">
+      <h3 style="margin-top: 0;">Absorption</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><strong>Water solubility:</strong> -2.892 (log mol/L)</li>
+        <li><strong>Caco2 permeability:</strong> -0.618 (log Papp in 10⁻⁶ cm/s)</li>
+        <li><strong>Intestinal absorption (human):</strong> 0 (%)</li>
+        <li><strong>Skin Permeability:</strong> -2.735 (log Kp)</li>
+        <li><strong>P-glycoprotein substrate:</strong> Yes</li>
+        <li><strong>P-glycoprotein I inhibitor:</strong> No</li>
+        <li><strong>P-glycoprotein II inhibitor:</strong> No</li>
+      </ul>
+    </div>
+
+    <!-- Distribution -->
+    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1rem;">
+      <h3 style="margin-top: 0;">Distribution</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><strong>VDss (human):</strong> -0.691 (log L/kg)</li>
+        <li><strong>Fraction unbound (human):</strong> 0.379 (Fu)</li>
+        <li><strong>BBB permeability:</strong> -2.781 (log BB)</li>
+        <li><strong>CNS permeability:</strong> -6.862 (log PS)</li>
+      </ul>
+    </div>
+
+    <!-- Metabolism -->
+    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1rem;">
+      <h3 style="margin-top: 0;">Metabolism</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><strong>CYP2D6 substrate:</strong> No</li>
+        <li><strong>CYP3A4 substrate:</strong> Yes</li>
+        <li><strong>CYP1A2 inhibitor:</strong> No</li>
+        <li><strong>CYP2C19 inhibitor:</strong> No</li>
+        <li><strong>CYP2C9 inhibitor:</strong> No</li>
+        <li><strong>CYP2D6 inhibitor:</strong> No</li>
+        <li><strong>CYP3A4 inhibitor:</strong> No</li>
+      </ul>
+    </div>
+
+    <!-- Excretion -->
+    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1rem;">
+      <h3 style="margin-top: 0;">Excretion</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><strong>Total Clearance:</strong> -0.114 (log ml/min/kg)</li>
+        <li><strong>Renal OCT2 substrate:</strong> No</li>
+      </ul>
+    </div>
+
+    <!-- Toxicity -->
+    <div style="border: 1px solid #ccc; border-radius: 10px; padding: 1rem;">
+      <h3 style="margin-top: 0;">Toxicity</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><strong>AMES toxicity:</strong> No</li>
+        <li><strong>Max. tolerated dose (human):</strong> 0.442 (log mg/kg/day)</li>
+        <li><strong>hERG I inhibitor:</strong> No</li>
+        <li><strong>hERG II inhibitor:</strong> Yes</li>
+        <li><strong>Oral Rat Acute Toxicity (LD50):</strong> 2.482 (mol/kg)</li>
+        <li><strong>Oral Rat Chronic Toxicity (LOAEL):</strong> 6.895 (log mg/kg_bw/day)</li>
+        <li><strong>Hepatotoxicity:</strong> Yes</li>
+        <li><strong>Skin Sensitisation:</strong> No</li>
+        <li><strong>T. Pyriformis toxicity:</strong> 0.285 (log µg/L)</li>
+        <li><strong>Minnow toxicity:</strong> 17.145 (log mM)</li>
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+    <footer>
+        &copy; 2025 Vashti's DENV Docking Visualizer
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script>
+        const optionsMap = {
+            "DENV1SEQ03": ["1uzg", "3g7t", "3vtt", "7a3p", "7a3r"],
+            "DENV1SEQ06": ["1uzg", "3g7t", "3vtt", "7a3p", "7a3r"],
+            "DENV1SEQ08": ["1uzg", "3g7t", "3vtt", "7a3p", "7a3r"],
+            "DENV2SEQ05": ["1oan", "1uzg", "3vtt", "7a3p", "7a3r"],
+            "DENV2SEQ08": ["1oan", "1uzg", "3vtt", "7a3p", "7a3r"],
+            "DENV2SEQ10": ["1oan", "1uzg", "3vtt", "7a3p", "7a3r"],
+            "DENV3SEQ06": ["1uzg", "3vtt", "7a3p", "7a3r"],
+            "DENV3SEQ09": ["1uzg", "3vtt", "7a3p", "7a3r"],
+            "DENV3SEQ10": ["1uzg", "3vtt", "7a3p", "7a3r"],
+            "DENV4SEQ01": ["1uzg", "3vtt", "3we1", "7a3p", "7a3r"],
+            "DENV4SEQ09": ["1uzg", "3vtt", "3we1", "7a3p", "7a3r"],
+            "DENV4SEQ10": ["1uzg", "3vtt", "3we1", "7a3p", "7a3r"]
+        };
+
+        const seqDropdown = document.getElementById("seqDropdown");
+        const pdbDropdown = document.getElementById("pdbDropdown");
+        const iframe = document.getElementById("result-frame");
+        const pdbLink = document.getElementById("pdb-link");
+
+        function updatePDBDropdown(selectedSeq) {
+            pdbDropdown.innerHTML = '<option value="">Select PDB</option>';
+            if (optionsMap[selectedSeq]) {
+                optionsMap[selectedSeq].forEach(pdb => {
+                    const option = document.createElement("option");
+                    option.value = `${selectedSeq}-docking-${pdb}.html`;
+                    option.textContent = pdb.toUpperCase();
+                    pdbDropdown.appendChild(option);
+                });
+                pdbDropdown.disabled = false;
+            } else {
+                pdbDropdown.disabled = true;
+            }
+            // Reset iframe and pdbLink when sequence changes
+            iframe.src = "";
+            pdbLink.style.display = "none";
+            pdbLink.href = "#";
+            pdbLink.textContent = "";
+        }
+
+        function loadIframe(filename) {
+            if (!filename) {
+                iframe.src = "";
+                pdbLink.style.display = "none";
+                pdbLink.href = "#";
+                pdbLink.textContent = "";
+                return;
+            }
+            iframe.src = filename;
+
+            // Extract pdbID from filename
+            const pdbIDMatch = filename.match(/-docking-([a-z0-9]+)\.html$/i);
+            if (pdbIDMatch) {
+                const pdbID = pdbIDMatch[1].toUpperCase();
+                pdbLink.href = `https://www.rcsb.org/structure/${pdbID}`;
+                pdbLink.textContent = `View ${pdbID} on Protein Data Bank`;
+                pdbLink.style.display = "inline";
+            } else {
+                pdbLink.style.display = "none";
+                pdbLink.href = "#";
+                pdbLink.textContent = "";
+            }
+        }
+
+        seqDropdown.addEventListener("change", () => {
+            const selectedSeq = seqDropdown.value;
+            updatePDBDropdown(selectedSeq);
+        });
+
+        pdbDropdown.addEventListener("change", () => {
+            const selectedValue = pdbDropdown.value;
+            loadIframe(selectedValue);
+        });
+    </script>
+    
+</body>
+
+</html>
